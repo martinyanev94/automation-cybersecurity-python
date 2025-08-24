@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Form</title>
+    <script>
+        function validateForm() {
+            let email = document.getElementById("email").value;
+            let age = document.getElementById("age").value;
+
+            let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(email)) {
+                alert("Invalid email format.");
+                return false;
+            }
+
+            if (isNaN(age) || age < 0 || age > 120) {
+                alert("Invalid age.");
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+        Email: <input type="text" id="email" required><br>
+        Age: <input type="number" id="age" required><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
