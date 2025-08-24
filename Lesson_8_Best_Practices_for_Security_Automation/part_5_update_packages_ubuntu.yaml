@@ -1,0 +1,7 @@
+# Ansible playbook example for updating packages on Ubuntu.
+- hosts: all
+  become: yes
+  tasks:
+    - name: Update all packages to the latest version
+      apt:
+        upgrade: dist
