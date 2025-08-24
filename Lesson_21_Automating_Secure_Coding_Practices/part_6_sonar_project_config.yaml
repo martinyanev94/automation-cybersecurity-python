@@ -1,0 +1,5 @@
+sonar:
+  projectKey: your-project-key
+  projectName: Your Project Name
+  sources: .
+  language: py
