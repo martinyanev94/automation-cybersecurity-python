@@ -1,0 +1,18 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run OWASP ZAP
+        run: |
+          docker run --rm -t owasp/zap2docker-stable zap-baseline.py -t http://your-app-url.com -r testreport.html
